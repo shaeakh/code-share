@@ -9,16 +9,14 @@ using namespace std;
 
 const long long int N = 1e5+10;
 const long long int INF = 10e18;
-vector<int> vis(N,0);
-vector<long long int>dist(N,INF);
-
 
 vector < pair <long long int,long long int> > g[N]; // {end_point,weight}
 
 
 
 void dijsktra(long long int source,long long int n){
-    
+    vector<int> vis(N,0);
+    vector<long long int>dist(N,INF);
     //priority_queue<pii, vii, greater<pii>> set;
     set<pair<long long int,long long int>> set;  // {weight,end_point}
     set.insert({0,source});
