@@ -44,8 +44,8 @@ void dijsktra(long long int source,long long int n){
             }
         }
     }
-    //for(long long int i=1;i<=n;i++) cout<<dist[i]<<" ";
-    //cout<<endl;
+    for(long long int i=1;i<=n;i++) cout<<dist[i]<<" ";
+    cout<<endl;
 }
 
 
