@@ -23,38 +23,38 @@ template< class T > T Min(T a, T b) { return a<b?a:b; }
 template< class T > T abs(T a) { return a>0?a:-a; }
 
 //constant
-#define MOD 1000000007
-#define pi acos(-1.0)
-#define PI 3.1415926535897932384626433832795028841971
-#define INF 0x3f3f3f3f;
-const ll LNF = 0x3f3f3f3f3f3f3f3f;
-const double EPS = 1e-8;
-const ld     EUL = 2.71828182845904523536;  //20digits
-const ld     PII = 3.14159265358979323846;  //20digits
-#define mx_value 1e19
+#define MOD         1000000007
+#define pi          acos(-1.0)
+#define PI          3.1415926535897932384626433832795028841971
+#define INF         0x3f3f3f3f;
+const ll LNF =      0x3f3f3f3f3f3f3f3f;
+const double EPS =  1e-8;
+const ld     EUL =  2.71828182845904523536;  //20digits
+const ld     PII =  3.14159265358979323846;  //20digits
+#define mx_value    1e19
 
 
 //iteration sector
-#define tr(c, i) for (auto i = c.begin(); i != c.end(); i++)
-#define all(x) begin(x), end(x) 
-#define iterate_print(s) for(auto &x: s) cout<<x<<" " ; cout<<endl ;
-#define pri(a,s,n) for(int i = s; i < n; i++) cout<<a[i]<<" "; cout << endl
-#define foreach(i,n) for(__typeof((n).begin())i =(n).begin();i!=(n).end();i++)
+#define tr(c, i)            for (auto i = c.begin(); i != c.end(); i++)
+#define all(x)              begin(x), end(x) 
+#define iterate_print(s)    for(auto &x: s) cout<<x<<" " ; cout<<endl ;
+#define pri(a,s,n)          for(int i = s; i < n; i++) cout<<a[i]<<" "; cout << endl
+#define foreach(i,n)        for(__typeof((n).begin())i =(n).begin();i!=(n).end();i++)
 
 //for loop
-#define f(i,a,b)       for(int i=(a);i<(b);i++)
-#define fd(i,a,b)      for(ll i=(a);i>(b);i--)
-#define f0(i,b) for(int i=0;i<b;i++)
-#define f1(i,b) for(int i=1;i<=b;i++)
-#define fi(i,a,b) for(int i=a;i>=b;i--)
-#define fx(i,a,b,dx) for(int i=a;i<b;i+=dx)
-#define fn(i,b) for(int i=0;i<n;i++)
+#define f(i,a,b)        for(int i=(a);i<(b);i++)
+#define fd(i,a,b)       for(ll i=(a);i>(b);i--)
+#define f0(i,b)         for(int i=0;i<b;i++)
+#define f1(i,b)         for(int i=1;i<=b;i++)
+#define fi(i,a,b)       for(int i=a;i>=b;i--)
+#define fx(i,a,b,dx)    for(int i=a;i<b;i+=dx)
+#define fn(i,b)         for(int i=0;i<n;i++)
 
 //container
 #define pii             pair <int,int>
 #define pll             pair <ll,ll>
 #define pss             pair <string,string>
-
+#define trip            pair <int,pair<int,pair<int,int>>>
 #define vi              vector <int>
 #define viIt            vector<int>::iterator
 #define vl              vector <ll>
@@ -73,26 +73,25 @@ const ld     PII = 3.14159265358979323846;  //20digits
 #define siIt            set<int>::iterator
 
 //stl related
-#define F first
-#define S second
-#define mp make_pair
-#define mt make_tuple 
-#define pb push_back
-#define rsz resize
-#define sz(x) (int) (x).size()
-#define it_multiset  std::multiset<int>::iterator it;
-#define it_mii std::map<int, int>::iterator it;
-#define present(c, x) (c.find(x) != c.end())
-#define cpresent(c, x) (find(all(c), x) != c.end())
-#define clr(x) x.clear()
+#define F                   first
+#define S                   second
+#define mp                  make_pair
+#define mt                  make_tuple 
+#define pb                  push_back
+#define rsz                 resize
+#define sz(x)               (int) (x).size()
+#define it_multiset         std::multiset<int>::iterator it;
+#define it_mii              std::map<int, int>::iterator it;
+#define present(c, x)       (c.find(x) != c.end())
+#define cpresent(c, x)      (find(all(c), x) != c.end())
 
 //scanf & printf
-#define si(n)                        scanf("%d",&n)
+#define si(n)                       scanf("%d",&n)
 #define sii(a,b)                    scanf("%d%d",&a,&b)
-#define siii(a,b,c)                scanf("%d%d%d",&a,&b,&c)
-#define sl(a)                        scanf("%lld",&a)
+#define siii(a,b,c)                 scanf("%d%d%d",&a,&b,&c)
+#define sl(a)                       scanf("%lld",&a)
 #define sll(a,b)                    scanf("%lld%lld",&a,&b)
-#define slll(a,b,c)                scanf("%lld%lld%lld",&a,&b,&c)
+#define slll(a,b,c)                 scanf("%lld%lld%lld",&a,&b,&c)
 #define sf(n)                       scanf("%lf",&n)
 #define ss(n)                       scanf("%s",n)
 
@@ -114,6 +113,19 @@ const ld     PII = 3.14159265358979323846;  //20digits
 #define balsal printf("dhukse\n")
 #define yes    printf("YES\n")
 #define no     printf("NO\n")
+
+
+// ceil is a bad function
+// think about reverse process
+// read statement carefully
+// think about corner cases before implementing
+// don't forget to comment/uncomment define endl in interactive/non-interactive problems
+// check if you are returning from solve before resetting array values
+// try not to use continue / return statement, try to use if else
+// try to write custom functions if stl one deals with floating point values
+// don't use unordered map without custom hash
+// multiset is bad try to use map if possible
+// don't forget to return a value from a non-void function
 
 void solve(){  
 
@@ -149,6 +161,12 @@ int main(){
     #else
     #define dbg(x...)
     #endif
-6. 
+6. https://codeforces.com/submissions/SA01
+   vai ei bandar code e bujhi na er id e raikha dilam 
+   onk templete ache eikhane
+7. #pragma GCC optimize("Ofast")
+   #pragma GCC target("avx,avx2,fma")
+   #pragma GCC optimization ("unroll-loops")
+8. 
 
 */
