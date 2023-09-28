@@ -6,7 +6,7 @@ using namespace std;
 #define _ ios_base::sync_with_stdio(0);
 #define fastt ios_base::sync_with_stdio(false); cin.tie(0);
 
-//typedef long long int ll;
+//typedef 
 typedef float               flt;
 typedef double              dbl;
 typedef long double         ld;
@@ -55,6 +55,7 @@ const ld     PII =  3.14159265358979323846;  //20digits
 #define pll             pair <ll,ll>
 #define pss             pair <string,string>
 #define trip            pair <int,pair<int,pair<int,int>>>
+
 #define vi              vector <int>
 #define viIt            vector<int>::iterator
 #define vl              vector <ll>
@@ -71,6 +72,10 @@ const ld     PII =  3.14159265358979323846;  //20digits
 #define mls             map<ll,string>
 #define msl             map<string,ll>
 #define siIt            set<int>::iterator
+#define pqinc           priority_queue<int, vector<int>, greater<int> >
+#define pqdec           priority_queue
+#define pqsetin         priority_queue<pair<ll,ll>,vector<pair<ll,ll>>,greater<pair<ll,ll>>>
+#define pqsetdec        priority_queue<pair<ll,ll>,vector<pair<ll,ll>>>
 
 //stl related
 #define F                   first
@@ -128,7 +133,18 @@ const ld     PII =  3.14159265358979323846;  //20digits
 // don't forget to return a value from a non-void function
 
 void solve(){  
-
+    pqinc pq;
+    pq.push(10);
+    pq.push(2);
+    pq.push(3);
+    pq.push(1);
+    while (!pq.empty())
+    {
+        int x = pq.top();
+        pq.pop();
+        cout<<x<<" ";
+    }
+    
 }
 
 int main(){
@@ -170,3 +186,4 @@ int main(){
 8. 
 
 */
+
