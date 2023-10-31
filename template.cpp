@@ -133,16 +133,10 @@ const ld     PII =  3.14159265358979323846;  //20digits
 // don't forget to return a value from a non-void function
 
 void solve(){  
-    pqinc pq;
-    pq.push(10);
-    pq.push(2);
-    pq.push(3);
-    pq.push(1);
-    while (!pq.empty())
+    int t; cin>>t;
+    while (t--)
     {
-        int x = pq.top();
-        pq.pop();
-        cout<<x<<" ";
+        
     }
     
 }
