@@ -11,3 +11,20 @@ class name extends StatelessWidget{
   }
 
 }
+
+//this is for statefull
+import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
+class Name extends StatefulWidget{
+  const Name({super.key});
+  @override
+  State<Name> createState() => _Name();
+}
+
+class _Name extends State<Name>{
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+    );
+  }
+}
