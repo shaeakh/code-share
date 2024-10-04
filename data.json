@@ -45,5 +45,5 @@
       "value": "110/70 mmHg"
     }
   ],
-  "test": ["Complete Blood Count (CBC)", "Liver Function Test", "Kidney Function Test"]
+  "test": ["Complete Blood Count (CBC)", "Liver Function Test", "Dengue Test"]
 }
