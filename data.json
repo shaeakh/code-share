@@ -6,44 +6,44 @@
       "medicineName": "Napa Extra",
       "takingTime": "1+1+0",
       "isNeedEmptyStomach": "no-yes-x",
-      "medicineUsage": "Loreadasdasdasdasdasd",
-      "sideEffect": "Loremdasdasdasdasdasdasd"
+      "medicineUsage": "Used for relief of pain and fever, often taken in cases of headaches, toothaches, and muscle pain.",
+      "sideEffect": "Possible side effects include nausea, dizziness, and allergic reactions in rare cases."
     },
     {
       "medicineName": "Rolac",
       "takingTime": "1+1+1",
       "isNeedEmptyStomach": "no-yes-yes",
-      "medicineUsage": "Loreadasdasdasdasdasd",
-      "sideEffect": "Loremdasdasdasdasdasdasd"
+      "medicineUsage": "Used to relieve moderate to severe pain, especially post-surgery or injury.",
+      "sideEffect": "May cause stomach upset, drowsiness, or, in rare cases, kidney issues."
     },
     {
       "medicineName": "Fexo",
       "takingTime": "1+0+0",
       "isNeedEmptyStomach": "no-x-x",
-      "medicineUsage": "Loreadasdasdasdasdasd",
-      "sideEffect": "Loremdasdasdasdasdasdasd"
+      "medicineUsage": "An antihistamine used for treating allergy symptoms such as runny nose, itchy eyes, or skin rashes.",
+      "sideEffect": "Common side effects include dry mouth, headache, and drowsiness."
     },
     {
       "medicineName": "Fexo Card",
       "takingTime": "0+1+0",
       "isNeedEmptyStomach": "x-yes-x",
-      "medicineUsage": "Loreadasdasdasdasdasd",
-      "sideEffect": "Loremdasdasdasdasdasdasd"
+      "medicineUsage": "Used to manage chronic allergy symptoms such as sneezing, itching, or hives.",
+      "sideEffect": "May cause headaches, stomach upset, or fatigue."
     }
   ],
   "healhData": [
     {
       "type": "Diabetes",
-      "value": "13"
+      "value": "180 mg/dL"
     },
     {
       "type": "BP",
-      "value": "75"
+      "value": "120/80 mmHg"
     },
     {
       "type": "Pressure",
-      "value": "60-70"
+      "value": "110/70 mmHg"
     }
   ],
-  "test": ["test 1","test 2","test 3"]
+  "test": ["Complete Blood Count (CBC)", "Liver Function Test", "Kidney Function Test"]
 }
