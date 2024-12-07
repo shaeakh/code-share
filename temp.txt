@@ -1,25 +1,39 @@
-// components/Map.js
+// components/Map.tsx
+import { FC } from 'react';
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
-import { useEffect } from 'react';
 import L from 'leaflet';
+import 'leaflet/dist/leaflet.css';
 
 // Leaflet এর ডিফল্ট আইকন ঠিক করার জন্য
-delete L.Icon.Default.prototype._getIconUrl;
+// TypeScript এ require ব্যবহার করার জন্য import ব্যবহার করা উত্তম
+// তবে এখানে dynamic import ব্যবহার করা হয়েছে
+import markerIcon2x from 'leaflet/dist/images/marker-icon-2x.png';
+import markerIcon from 'leaflet/dist/images/marker-icon.png';
+import markerShadow from 'leaflet/dist/images/marker-shadow.png';
+
+// আইকন ঠিক করা
+delete (L.Icon.Default.prototype as any)._getIconUrl;
 
 L.Icon.Default.mergeOptions({
-  iconRetinaUrl: typeof window !== 'undefined' ? require('leaflet/dist/images/marker-icon-2x.png') : '',
-  iconUrl: typeof window !== 'undefined' ? require('leaflet/dist/images/marker-icon.png') : '',
-  shadowUrl: typeof window !== 'undefined' ? require('leaflet/dist/images/marker-shadow.png') : '',
+  iconRetinaUrl: markerIcon2x,
+  iconUrl: markerIcon,
+  shadowUrl: markerShadow,
 });
 
-const places = [
+// প্লেসের টাইপ ডিফাইন করা
+interface Place {
+  name: string;
+  position: [number, number];
+}
+
+const places: Place[] = [
   { name: 'ঢাকা', position: [23.8103, 90.4125] },
   { name: 'চট্টগ্রাম', position: [22.3475, 91.8123] },
   { name: 'সিলেট', position: [24.9045, 91.8611] },
   // আরও প্লেস যোগ করতে পারেন
 ];
 
-const Map = () => {
+const Map: FC = () => {
   return (
     <MapContainer center={[23.8103, 90.4125]} zoom={6} style={{ height: '100vh', width: '100%' }}>
       <TileLayer
