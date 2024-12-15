@@ -9,8 +9,21 @@ class timelinepage extends StatefulWidget{
 class _timelinepage extends State<timelinepage>{
   @override
   Widget build(BuildContext context) {
-    return Scaffold
-        
+    return Scaffold(
+      appBar: AppBar(
+        centerTitle: true,
+        title: Text(
+          "New Trend",
+          style: TextStyle(
+              fontWeight: FontWeight.bold
+          ),
+        ),
+        leading: Icon(
+          Icons.chevron_left,
+          color: Colors.grey,
+          size: 40,
+        ),
+      ),
     );
   }
 }
