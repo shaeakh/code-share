@@ -23,6 +23,18 @@ class _timelinepage extends State<timelinepage>{
           color: Colors.grey,
           size: 40,
         ),
+        actions: [
+          IconButton(
+              onPressed: (){}, icon: Icon(Icons.shopping_cart,color: Colors.grey,)
+          ),
+        ],
+      ),
+      body: Padding(
+        child: SingleChildScrollView(
+          child: Column(
+          ),
+        ),
+          padding: EdgeInsets.symmetric(vertical:0 ,horizontal: 16)
       ),
     );
   }
