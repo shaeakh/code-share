@@ -1,5 +1,11 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:shopify360/widgets/timeline/home.dart';
+
+import '../widgets/timeline/cart.dart';
+import '../widgets/timeline/favourites.dart';
+import '../widgets/timeline/profile.dart';
+import '../widgets/timeline/search.dart';
 class timelinepage extends StatefulWidget{
   const timelinepage({super.key});
   @override
@@ -7,6 +13,14 @@ class timelinepage extends StatefulWidget{
 }
 
 class _timelinepage extends State<timelinepage>{
+  int selected_index = 0;
+  final List<Widget>_pages = [
+    Home(),
+    Cart(),
+    Favourites(),
+    Profile(),
+    Search_()
+  ];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -29,12 +43,23 @@ class _timelinepage extends State<timelinepage>{
           ),
         ],
       ),
-      body: Padding(
-        child: SingleChildScrollView(
-          child: Column(
-          ),
-        ),
-          padding: EdgeInsets.symmetric(vertical:0 ,horizontal: 16)
+      body: _pages[selected_index],
+      bottomNavigationBar: BottomNavigationBar(
+          currentIndex: selected_index,
+        onTap: (int index){
+            setState(() {
+              selected_index = index;
+            });
+        },
+        selectedItemColor: Colors.brown,
+        unselectedItemColor: Colors.grey,
+        items: [
+          BottomNavigationBarItem(icon: Icon(Icons.home),label: ""),
+          BottomNavigationBarItem(icon: Icon(Icons.search),label: ""),
+          BottomNavigationBarItem(icon: Icon(Icons.shopping_cart_outlined),label: ""),
+          BottomNavigationBarItem(icon: Icon(Icons.favorite_border),label: ""),
+          BottomNavigationBarItem(icon: Icon(Icons.person_3_outlined),label: ""),
+        ],
       ),
     );
   }
