@@ -1,66 +1,30 @@
+//this is for stateless
 import 'package:flutter/cupertino.dart';
-import 'package:flutter/material.dart';
-import 'package:shopify360/widgets/timeline/home.dart';
 
-import '../widgets/timeline/cart.dart';
-import '../widgets/timeline/favourites.dart';
-import '../widgets/timeline/profile.dart';
-import '../widgets/timeline/search.dart';
-class timelinepage extends StatefulWidget{
-  const timelinepage({super.key});
+class name extends StatelessWidget{
+  const name({super.key});
+
   @override
-  State<timelinepage> createState() => _timelinepage();
+  Widget build(BuildContext context) {
+    // TODO: implement build
+    throw UnimplementedError();
+  }
+
 }
 
-class _timelinepage extends State<timelinepage>{
-  int selected_index = 0;
-  final List<Widget>_pages = [
-    Home(),
-    Cart(),
-    Favourites(),
-    Profile(),
-    Search_()
-  ];
+//this is for statefull
+import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
+class Name extends StatefulWidget{
+  const Name({super.key});
+  @override
+  State<Name> createState() => _Name();
+}
+
+class _Name extends State<Name>{
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        centerTitle: true,
-        title: Text(
-          "New Trend",
-          style: TextStyle(
-              fontWeight: FontWeight.bold
-          ),
-        ),
-        leading: Icon(
-          Icons.chevron_left,
-          color: Colors.grey,
-          size: 40,
-        ),
-        actions: [
-          IconButton(
-              onPressed: (){}, icon: Icon(Icons.shopping_cart,color: Colors.grey,)
-          ),
-        ],
-      ),
-      body: _pages[selected_index],
-      bottomNavigationBar: BottomNavigationBar(
-          currentIndex: selected_index,
-        onTap: (int index){
-            setState(() {
-              selected_index = index;
-            });
-        },
-        selectedItemColor: Colors.brown,
-        unselectedItemColor: Colors.grey,
-        items: [
-          BottomNavigationBarItem(icon: Icon(Icons.home),label: ""),
-          BottomNavigationBarItem(icon: Icon(Icons.search),label: ""),
-          BottomNavigationBarItem(icon: Icon(Icons.shopping_cart_outlined),label: ""),
-          BottomNavigationBarItem(icon: Icon(Icons.favorite_border),label: ""),
-          BottomNavigationBarItem(icon: Icon(Icons.person_3_outlined),label: ""),
-        ],
-      ),
     );
   }
 }
