@@ -1,94 +1,6 @@
-import 'package:flutter/material.dart';
+Home.dart 
+==========================================
 
-class Product {
-  final int id;
-  final String productName;
-  final double price;
-  final bool favourite;
-  final String pictureUrl;
-
-  Product({
-    required this.id,
-    required this.productName,
-    required this.price,
-    required this.favourite,
-    required this.pictureUrl,
-  });
-}
-
-class ProductCard1 extends StatelessWidget {
-  final Product product;
-
-  const ProductCard1({Key? key, required this.product}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Stack(
-      clipBehavior: Clip.none,
-      alignment: Alignment.topCenter,
-      children: [
-        // The card behind
-        Card(
-          elevation: 3,
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(8),
-          ),
-          child: Padding(
-            // top padding to leave space for image overlap
-            padding: const EdgeInsets.only(top: 60, left: 8, right: 8, bottom: 8),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                // Product details
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  mainAxisSize: MainAxisSize.min,
-                  children: [
-                    Text(
-                      product.productName,
-                      style: TextStyle(
-                        fontSize: 14,
-                        color: Colors.grey.shade600,
-                      ),
-                    ),
-                    const SizedBox(height: 4),
-                    Text(
-                      "\$${product.price.toStringAsFixed(0)}",
-                      style: const TextStyle(
-                        fontSize: 16,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    )
-                  ],
-                ),
-
-                // Favourite icon
-                Icon(
-                  Icons.favorite,
-                  color: product.favourite ? Colors.red : Colors.grey,
-                ),
-              ],
-            ),
-          ),
-        ),
-
-        // Overlapping product image
-        Positioned(
-          top: -20,
-          child: Image.network(
-            product.pictureUrl,
-            height: 80,
-            fit: BoxFit.contain,
-          ),
-        ),
-      ],
-    );
-  }
-}
-
-
-
-================
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:shopify360/widgets/timeline/home.dart';
@@ -232,10 +144,86 @@ class _timelinepage extends State<timelinepage>{
   }
 }
 
-=================
+card.dart 
+==========================================
+import 'dart:convert';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
+import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
+import 'package:http/http.dart' as http;
+import 'package:shopify360/widgets/timeline/card1.dart';
+class Home extends StatefulWidget{
+  const Home({super.key});
+  @override
+  State<Home> createState() => _Home();
+}
 
-this code outputs 
+class _Home extends State<Home>{
+  final baseUrl = dotenv.env['backend_URL'];
+  var data;
+  void fetchdata () async{
+    final url = Uri.parse('${baseUrl}/products');
+    try{
+      final response = await http.get(url);
+      if (response.statusCode == 200) {
+        setState(() {
+          data = jsonDecode(response.body);
+        });
+      } else {
+        print('Error: ${response.statusCode}');
+      }
+    }catch(e){
+      print('Exception: $e');
+    }
+  }
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+        child: SingleChildScrollView(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Expanded(child: _buildActionButton("Sort",Icons.sort,fetchdata)),
+                  SizedBox(width: 16,),
+                  Expanded(child: _buildActionButton("Filter",Icons.tune,fetchdata)),
+                ],
+              ),
+              data == null ? Center(child: CircularProgressIndicator()) :
+              GridView.count(
+                padding: EdgeInsets.all(16),
+                  crossAxisCount: 2,
+                crossAxisSpacing: 16,
+                mainAxisSpacing: 16,
+                children: [
+                  data.map((product){
+                    return ProductCard1(product:product);
+                  }).toList(),
+                ],
+              )
+            ],
+          ),
+        ),
+        padding: EdgeInsets.symmetric(vertical:0 ,horizontal: 16)
+    );
 
-type error instance of '_jsonmap':type'_jsonmap' is not a sub type of type "Product. "
+  }
+  Widget _buildActionButton(String text, IconData icon,VoidCallback onpress) {
+    return OutlinedButton.icon(
+      onPressed: onpress,
+      icon: Icon(icon, color: Colors.brown),
+      label: Text(text, style: const TextStyle(color: Colors.brown)),
+      style: OutlinedButton.styleFrom(
+        side: const BorderSide(color: Colors.brown),
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
+      ),
+    );
+  }
+}
 
-how to fix it ?
+this shows 
+
+Instance of '_JsonMap': type '_JsonMap' is not a subtype 
+of type 'Product'
