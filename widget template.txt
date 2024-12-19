@@ -15,16 +15,19 @@ class name extends StatelessWidget{
 //this is for statefull
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-class Name extends StatefulWidget{
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+class Name extends ConsumerStatefulWidget{
   const Name({super.key});
   @override
-  State<Name> createState() => _Name();
+  ConsumerState<Name> createState() => _Name();
 }
 
-class _Name extends State<Name>{
+class _Name extends ConsumerState<Name>{
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Theme.of(context).colorScheme.surface,
+      body: Text("sa"),
     );
   }
 }
