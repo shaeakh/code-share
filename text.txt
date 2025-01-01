@@ -1,0 +1,311 @@
+controller :
+
+import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+
+class HomeController extends GetxController {
+  // Form visibility controllers
+  final showHeight = false.obs;
+  final showWeight = false.obs;
+  final showComplexion = false.obs;
+  final showSalary = false.obs;
+  final showWealth = false.obs;
+  final showDivision = false.obs;
+  final showHygiene = false.obs;
+  final showSubmit = false.obs;
+
+  // Avatar state
+  final avatarState = 'default'.obs;
+  final avatarColor = Colors.green.obs;
+
+  // Form data controllers
+  final age = ''.obs;
+  final height = ''.obs;
+  final weight = ''.obs;
+  final complexion = ''.obs;
+  final salary = ''.obs;
+  final wealth = ''.obs;
+  final division = ''.obs;
+  final hygiene = ''.obs;
+
+  // Dropdown options
+  final complexions = [
+    "fair",
+    "very fair",
+    "whitish",
+    "whitish medium",
+    "whitish brown",
+    "dark"
+  ];
+  final divisions = [
+    "Barishal",
+    "Chattogram",
+    "Dhaka",
+    "Khulna",
+    "Rajshahi",
+    "Rangpur",
+    "Mymensingh",
+    "Sylhet"
+  ];
+  final hygieneOptions = [
+    "once in a day",
+    "once in a week",
+    "once in a month",
+    "once in a year",
+    "শাহবাগী"
+  ];
+
+  void updateAvatarState() {
+    if (age.value.isNotEmpty) {
+      int ageValue = int.tryParse(age.value) ?? 0;
+      if (ageValue < 18) {
+        avatarState.value = 'teenage';
+        avatarColor.value = Colors.blue;
+      } else if (ageValue < 40) {
+        avatarState.value = 'adult';
+        avatarColor.value = Colors.green;
+      } else {
+        avatarState.value = 'old';
+        avatarColor.value = Colors.grey;
+      }
+    }
+  }
+
+  void onAgeChanged(String value) {
+    age.value = value;
+    if (value.isNotEmpty) {
+      updateAvatarState();
+      showHeight.value = true;
+    }
+  }
+
+  void onHeightChanged(String value) {
+    height.value = value;
+    if (value.isNotEmpty) {
+      showWeight.value = true;
+    }
+  }
+
+  void onWeightChanged(String value) {
+    weight.value = value;
+    if (value.isNotEmpty) {
+      showComplexion.value = true;
+    }
+  }
+
+  void onComplexionChanged(String value) {
+    complexion.value = value;
+    showSalary.value = true;
+  }
+
+  void onSalaryChanged(String value) {
+    salary.value = value;
+    if (value.isNotEmpty) {
+      showWealth.value = true;
+    }
+  }
+
+  void onWealthChanged(String value) {
+    wealth.value = value;
+    if (value.isNotEmpty) {
+      showDivision.value = true;
+    }
+  }
+
+  void onDivisionChanged(String value) {
+    division.value = value;
+    showHygiene.value = true;
+  }
+
+  void onHygieneChanged(String value) {
+    hygiene.value = value;
+    showSubmit.value = true;
+  }
+
+  void onSubmit() {
+    // Handle form submission
+    print('Form submitted with values:');
+    print('Age: ${age.value}');
+    print('Height: ${height.value}');
+    print('Weight: ${weight.value}');
+    print('Complexion: ${complexion.value}');
+    print('Salary: ${salary.value}');
+    print('Wealth: ${wealth.value}');
+    print('Division: ${division.value}');
+    print('Hygiene: ${hygiene.value}');
+  }
+}
+
+
+==========
+ Widget buildDesktopView() {
+    return Row(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        // Form section (3/4 width)
+        Expanded(
+          flex: 3,
+          child: Card(
+            child: Padding(
+              padding: const EdgeInsets.all(20.0),
+              child: Obx(() => Column(
+                    crossAxisAlignment: CrossAxisAlignment.stretch,
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      TextFormField(
+                        decoration: const InputDecoration(
+                          labelText: 'Age',
+                          hintText: 'Enter your age',
+                        ),
+                        keyboardType: TextInputType.number,
+                        onChanged: controller.onAgeChanged,
+                      ),
+                      if (controller.showHeight.value) ...[
+                        const SizedBox(height: 16),
+                        TextFormField(
+                          decoration: const InputDecoration(
+                            labelText: 'Height (cm)',
+                            hintText: 'Enter your height in centimeters',
+                          ),
+                          keyboardType: TextInputType.number,
+                          onChanged: controller.onHeightChanged,
+                        ),
+                      ],
+                      if (controller.showWeight.value) ...[
+                        const SizedBox(height: 16),
+                        TextFormField(
+                          decoration: const InputDecoration(
+                            labelText: 'Weight (kg)',
+                            hintText: 'Enter your weight in kilograms',
+                          ),
+                          keyboardType: TextInputType.number,
+                          onChanged: controller.onWeightChanged,
+                        ),
+                      ],
+                      if (controller.showComplexion.value) ...[
+                        const SizedBox(height: 16),
+                        DropdownButtonFormField<String>(
+                          decoration: const InputDecoration(
+                            labelText: 'Complexion',
+                          ),
+                          items: controller.complexions.map((String value) {
+                            return DropdownMenuItem<String>(
+                              value: value,
+                              child: Text(value),
+                            );
+                          }).toList(),
+                          onChanged: (value) =>
+                              controller.onComplexionChanged(value!),
+                        ),
+                      ],
+                      if (controller.showSalary.value) ...[
+                        const SizedBox(height: 16),
+                        TextFormField(
+                          decoration: const InputDecoration(
+                            labelText: 'Salary (Taka)',
+                            hintText: 'Enter your salary',
+                          ),
+                          keyboardType: TextInputType.number,
+                          onChanged: controller.onSalaryChanged,
+                        ),
+                      ],
+                      if (controller.showWealth.value) ...[
+                        const SizedBox(height: 16),
+                        TextFormField(
+                          decoration: const InputDecoration(
+                            labelText: 'Wealth Amount (Taka)',
+                            hintText: 'Enter your wealth amount',
+                          ),
+                          keyboardType: TextInputType.number,
+                          onChanged: controller.onWealthChanged,
+                        ),
+                      ],
+                      if (controller.showDivision.value) ...[
+                        const SizedBox(height: 16),
+                        DropdownButtonFormField<String>(
+                          decoration: const InputDecoration(
+                            labelText: 'Division',
+                          ),
+                          items: controller.divisions.map((String value) {
+                            return DropdownMenuItem<String>(
+                              value: value,
+                              child: Text(value),
+                            );
+                          }).toList(),
+                          onChanged: (value) =>
+                              controller.onDivisionChanged(value!),
+                        ),
+                      ],
+                      if (controller.showHygiene.value) ...[
+                        const SizedBox(height: 16),
+                        DropdownButtonFormField<String>(
+                          decoration: const InputDecoration(
+                            labelText: 'Self Hygiene',
+                          ),
+                          items: controller.hygieneOptions.map((String value) {
+                            return DropdownMenuItem<String>(
+                              value: value,
+                              child: Text(value),
+                            );
+                          }).toList(),
+                          onChanged: (value) =>
+                              controller.onHygieneChanged(value!),
+                        ),
+                      ],
+                      if (controller.showSubmit.value) ...[
+                        const SizedBox(height: 24),
+                        ElevatedButton(
+                          onPressed: controller.onSubmit,
+                          child: const Padding(
+                            padding: EdgeInsets.symmetric(vertical: 12),
+                            child: Text('Calculate Dowry',
+                                style: TextStyle(fontSize: 16)),
+                          ),
+                        ),
+                      ],
+                    ],
+                  )),
+            ),
+          ),
+        ),
+        // Avatar section (1/4 width)
+        Expanded(
+          flex: 1,
+          child: Obx(() => AnimatedContainer(
+                duration: const Duration(milliseconds: 500),
+                height: Get.height * 0.8,
+                margin: const EdgeInsets.only(left: 20),
+                decoration: BoxDecoration(
+                  color: controller.avatarColor.value,
+                  borderRadius: BorderRadius.circular(12),
+                ),
+                child: Center(
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Icon(
+                        controller.avatarState.value == 'teenage'
+                            ? Icons.face
+                            : controller.avatarState.value == 'adult'
+                                ? Icons.sentiment_satisfied
+                                : Icons.elderly,
+                        size: 100,
+                        color: Colors.white,
+                      ),
+                      const SizedBox(height: 16),
+                      Text(
+                        controller.avatarState.value.toUpperCase(),
+                        style: const TextStyle(
+                          color: Colors.white,
+                          fontSize: 24,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              )),
+        ),
+      ],
+    );
+  }
