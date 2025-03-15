@@ -10,6 +10,7 @@
       {
         "scope": "comment",
         "settings": {
+          "foreground": "#d1d885",
           "fontStyle": "italic"
         }
       }
@@ -43,7 +44,7 @@
   "terminal.integrated.fontSize": 22,
   "terminal.integrated.fontWeight": "normal",
   "terminal.integrated.fontFamily": "Fira Code, Operator Mono",
-  "workbench.colorTheme": "Material Theme Darker",
+  "workbench.colorTheme": "Dracula Theme",
   "workbench.iconTheme": "a-file-icon-vscode",
   // terminal customization
   "workbench.colorCustomizations": {
