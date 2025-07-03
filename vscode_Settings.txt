@@ -1,7 +1,7 @@
 {
-  // editor
+  // Editor
   "editor.fontSize": 20,
-  "editor.fontFamily": "Fira Code, Operator Mono",
+  "editor.fontFamily": "JetBrains Mono, Consolas, 'Courier New', monospace",
   "editor.fontLigatures": true,
   "editor.wordWrap": "on",
   "editor.minimap.enabled": false,
@@ -10,197 +10,46 @@
       {
         "scope": "comment",
         "settings": {
-          "foreground": "#d1d885",
           "fontStyle": "italic"
         }
       }
     ]
   },
-  // cursor
+
+  // Cursor
   "editor.cursorSmoothCaretAnimation": "on",
   "editor.cursorBlinking": "expand",
 
-  //code formatting
-
-  // config related to code formatting
-  "editor.defaultFormatter": "esbenp.prettier-vscode",
-  "editor.formatOnSave": true,
-  "[javascript]": {
-    "editor.formatOnSave": false,
-    "editor.defaultFormatter": null
-  },
-  "[javascriptreact]": {
-    "editor.formatOnSave": false,
-    "editor.defaultFormatter": null
-  },
-  "editor.codeActionsOnSave": {
-    "source.fixAll.eslint": "explicit",
-    "source.fixAll.tslint": "explicit",
-    "source.organizeImports": "explicit"
-  },
-  "eslint.alwaysShowStatus": true,
-
-  //terminal
-  "terminal.integrated.fontSize": 22,
+  // Terminal
+  "terminal.integrated.fontSize": 16,
   "terminal.integrated.fontWeight": "normal",
-  "terminal.integrated.fontFamily": "Fira Code, Operator Mono",
-  "workbench.colorTheme": "Dracula Theme",
-  "workbench.iconTheme": "a-file-icon-vscode",
-  // terminal customization
+  "terminal.integrated.fontFamily": "JetBrains Mono",
+
+  // Appearance
+  "workbench.colorTheme": "Default Dark Modern",
+  "workbench.iconTheme": "material-icon-theme",
+  "workbench.editor.empty.hint": "hidden",
+
+  // Terminal Colors
   "workbench.colorCustomizations": {
-    "terminal.background": "#121617",
-    "terminal.foreground": "#3eaf19d8",
-    "terminalCursor.background": "#03ff78d8",
-    "terminalCursor.foreground": "#3eaf19d8",
+    "terminal.background": "#000000",
+    "terminal.foreground": "#00FF00",
+    "terminalCursor.foreground": "#00FF00",
     "terminal.ansiBlack": "#1D2021",
     "terminal.ansiBlue": "#0D6678",
+    "terminal.ansiGreen": "#00FF00",
     "terminal.ansiBrightBlack": "#665C54",
     "terminal.ansiBrightBlue": "#0D6678",
     "terminal.ansiBrightCyan": "#8BA59B",
-    "terminal.ansiBrightGreen": "#95C085",
+    "terminal.ansiBrightGreen": "#00FF00",
     "terminal.ansiBrightMagenta": "#8F4673",
-    "terminal.ansiBrightRed": "#FB543F",
+    "terminal.ansiBrightRed": "#FF0000",
     "terminal.ansiBrightWhite": "#FDF4C1",
     "terminal.ansiBrightYellow": "#FAC03B",
     "terminal.ansiCyan": "#8BA59B",
-    "terminal.ansiGreen": "#95C085",
     "terminal.ansiMagenta": "#8F4673",
-    "terminal.ansiRed": "#FB543F",
+    "terminal.ansiRed": "#FF0000",
     "terminal.ansiWhite": "#A89984",
     "terminal.ansiYellow": "#FAC03B"
-  },
-  "[cpp]": {
-    "editor.defaultFormatter": "ms-vscode.cpptools"
-  },
-  "code-runner.saveFileBeforeRun": true,
-  "code-runner.saveAllFilesBeforeRun": true,
-  "code-runner.runInTerminal": true,
-  "editor.linkedEditing": true,
-  "editor.rulers": [
-    {
-      "column": 80,
-      "color": "#00FF0010"
-    },
-    {
-      "column": 100,
-      "color": "#BDB76B15"
-    },
-    {
-      "column": 120,
-      "color": "#FA807219"
-    }
-  ],
-  "editor.unicodeHighlight.includeComments": true,
-  "workbench.editor.revealIfOpen": true,
-  "workbench.tree.indent": 20,
-  "files.eol": "\n",
-  "[bat]": {
-    "files.eol": "\r\n"
-  },
-  "emmet.variables": {
-    "lang": "en"
-  },
-  "thunder-client.requestLayout": "Top/Bottom",
-  "trailing-spaces.backgroundColor": "rgba(255,0,0,0.1)",
-  "trailing-spaces.includeEmptyLines": false,
-  "terminal.integrated.tabs.hideCondition": "never",
-  "terminal.integrated.enablePersistentSessions": false,
-  "java.compile.nullAnalysis.mode": "automatic",
-  "java.configuration.detectJdksAtStart": false,
-  "java.configuration.updateBuildConfiguration": "automatic",
-  "java.debug.settings.hotCodeReplace": "auto",
-  "java.dependency.packagePresentation": "hierarchical",
-  "java.maxConcurrentBuilds": 12,
-  "java.sources.organizeImports.staticStarThreshold": 1,
-  "java.configuration.runtimes": [
-    {
-      "name": "JavaSE-1.8",
-      "path": "C:\\Users\\Agent\\AppData\\Roaming\\Code\\User\\globalStorage\\pleiades.java-extension-pack-jdk\\java\\8"
-    },
-    {
-      "name": "JavaSE-11",
-      "path": "C:\\Users\\Agent\\AppData\\Roaming\\Code\\User\\globalStorage\\pleiades.java-extension-pack-jdk\\java\\11"
-    },
-    {
-      "name": "JavaSE-17",
-      "path": "C:\\Users\\Agent\\AppData\\Roaming\\Code\\User\\globalStorage\\pleiades.java-extension-pack-jdk\\java\\17"
-    },
-    {
-      "name": "JavaSE-21",
-      "path": "C:\\Users\\Agent\\AppData\\Roaming\\Code\\User\\globalStorage\\pleiades.java-extension-pack-jdk\\java\\21"
-    },
-    {
-      "name": "JavaSE-23",
-      "path": "C:\\Users\\Agent\\.jdks\\openjdk-23.0.1",
-      "default": true
-    }
-  ],
-  "terminal.integrated.profiles.windows": {
-    "JavaSE-1.8 LTS": {
-      "overrideName": true,
-      "env": {
-        "PATH": "C:\\Users\\Agent\\AppData\\Roaming\\Code\\User\\globalStorage\\pleiades.java-extension-pack-jdk\\java\\8\\bin;${env:PATH}",
-        "JAVA_HOME": "C:\\Users\\Agent\\AppData\\Roaming\\Code\\User\\globalStorage\\pleiades.java-extension-pack-jdk\\java\\8"
-      },
-      "path": "cmd"
-    },
-    "JavaSE-11 LTS": {
-      "overrideName": true,
-      "env": {
-        "PATH": "C:\\Users\\Agent\\AppData\\Roaming\\Code\\User\\globalStorage\\pleiades.java-extension-pack-jdk\\java\\11\\bin;${env:PATH}",
-        "JAVA_HOME": "C:\\Users\\Agent\\AppData\\Roaming\\Code\\User\\globalStorage\\pleiades.java-extension-pack-jdk\\java\\11"
-      },
-      "path": "cmd"
-    },
-    "JavaSE-17 LTS": {
-      "overrideName": true,
-      "env": {
-        "PATH": "C:\\Users\\Agent\\AppData\\Roaming\\Code\\User\\globalStorage\\pleiades.java-extension-pack-jdk\\java\\17\\bin;${env:PATH}",
-        "JAVA_HOME": "C:\\Users\\Agent\\AppData\\Roaming\\Code\\User\\globalStorage\\pleiades.java-extension-pack-jdk\\java\\17"
-      },
-      "path": "cmd"
-    },
-    "JavaSE-21 LTS": {
-      "overrideName": true,
-      "env": {
-        "PATH": "C:\\Users\\Agent\\AppData\\Roaming\\Code\\User\\globalStorage\\pleiades.java-extension-pack-jdk\\java\\21\\bin;${env:PATH}",
-        "JAVA_TOOL_OPTIONS": "-Dstdout.encoding=UTF-8 -Dstderr.encoding=UTF-8",
-        "JAVA_HOME": "C:\\Users\\Agent\\AppData\\Roaming\\Code\\User\\globalStorage\\pleiades.java-extension-pack-jdk\\java\\21"
-      },
-      "path": "cmd",
-      "args": ["/k", "chcp", "65001"]
-    },
-    "JavaSE-23": {
-      "overrideName": true,
-      "env": {
-        "PATH": "C:\\Users\\Agent\\.jdks\\openjdk-23.0.1\\bin;${env:PATH}",
-        "JAVA_TOOL_OPTIONS": "-Dstdout.encoding=UTF-8 -Dstderr.encoding=UTF-8",
-        "JAVA_HOME": "C:\\Users\\Agent\\.jdks\\openjdk-23.0.1"
-      },
-      "path": "cmd",
-      "args": ["/k", "chcp", "65001"]
-    }
-  },
-  "terminal.integrated.automationProfile.windows": {
-    "path": "cmd"
-  },
-  "terminal.integrated.defaultProfile.windows": "JavaSE-23",
-  "java.test.config": {
-    "vmArgs": ["-Dstdout.encoding=UTF-8", "-Dstderr.encoding=UTF-8"]
-  },
-  "terminal.integrated.env.windows": {
-    "JAVA_HOME": "C:\\Users\\Agent\\AppData\\Roaming\\Code\\User\\globalStorage\\pleiades.java-extension-pack-jdk\\java\\21",
-    "PATH": "C:\\Users\\Agent\\AppData\\Roaming\\Code\\User\\globalStorage\\pleiades.java-extension-pack-jdk\\java\\21\\bin;${env:PATH}"
-  },
-  "maven.terminal.customEnv": [
-    {
-      "environmentVariable": "JAVA_HOME",
-      "value": "C:\\Users\\Agent\\AppData\\Roaming\\Code\\User\\globalStorage\\pleiades.java-extension-pack-jdk\\java\\21"
-    }
-  ],
-  "java.import.gradle.java.home": "C:\\Users\\Agent\\AppData\\Roaming\\Code\\User\\globalStorage\\pleiades.java-extension-pack-jdk\\java\\21",
-  "maven.executable.path": "C:\\Users\\Agent\\AppData\\Roaming\\Code\\User\\globalStorage\\pleiades.java-extension-pack-jdk\\maven\\latest\\bin\\mvn",
-  "java.import.gradle.home": "C:\\Users\\Agent\\AppData\\Roaming\\Code\\User\\globalStorage\\pleiades.java-extension-pack-jdk\\gradle\\latest",
-  "typescript.updateImportsOnFileMove.enabled": "always",
-  "files.autoSave": "afterDelay"
+  }
 }
